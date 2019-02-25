@@ -1,15 +1,13 @@
-from distutils.core import setup
-from os import path
-from pip._internal.req import parse_requirements
-
-
-here = path.abspath(path.dirname(__file__))
-install_reqs = parse_requirements(here + '/requirements.txt', session=False)
-reqs = [str(ir.req) for ir in install_reqs]
+from setuptools import setup, find_packages
 
 setup(
-    name='complex',
-    version='1.0',
+    name='complex_trouillon',
+    version='0.1',
+    packages=find_packages(exclude=['datasets*, efe*']),
+    description='A wrapper for Trouillon et al. (2016) original Github repo.',
+    long_description=open('README.md').read(),
+    install_requires=['downhill', 'scikit-learn'],
     url='https://github.com/danesherbs/complex',
-    install_requires=reqs
+    author='Dane S',
+    author_email='danesherbs@gmail.com'
 )
