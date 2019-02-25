@@ -4,7 +4,7 @@ from pip._internal.req import parse_requirements
 
 
 here = path.abspath(path.dirname(__file__))
-install_reqs = parse_requirements(here + '/requirements.txt')
+install_reqs = parse_requirements(here + '/requirements.txt', session=False)
 reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
